@@ -26,11 +26,11 @@ window.onSignIn = function (googleUser) {
   const { id_token } = googleUser.getAuthResponse()
   console.log(id_token)
 
-  fetch('http://boilerplate-hackathon.damianjamka.com/auth/google/callback', {
+  fetch('http://boilerplate-hackathon.damianjamka.com/api/google/callback', {
     method: 'POST',
     mode: 'cors',
     headers: {
-      'Content-Type': 'application/json',
+      Accept: 'application/json',
       // 'Content-Type': 'application/x-www-form-urlencoded',
     },
   }).then((res) => {

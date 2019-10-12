@@ -27,8 +27,8 @@ Route::middleware('api')->name('api.')->group(function(){
 
 
     Route::name('qrs.')->prefix('qry')->group(function(){
-        Route::post('/wygeneruj','QRController@generate')->name('generate');
-        Route::post('/zweryfikuj','QRController@verify')->name('verify');
+        Route::post('/wygeneruj','QrController@generate')->name('generate');
+        Route::post('/zweryfikuj','QrController@verify')->name('verify');
     });
 
     Route::name('user.')->prefix('uzytkownik')->group(function(){

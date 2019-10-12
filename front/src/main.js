@@ -23,15 +23,15 @@ Vue.use(VueSocialauth, {
 
 window.onSignIn = function (googleUser) {
   const profile = googleUser.getBasicProfile()
-  const { id_token } = googleUser.getAuthResponse()
-  console.log(id_token)
+  const authObject = googleUser.getAuthResponse()
+  console.log(authObject)
 
-  fetch('http://boilerplate-hackathon.damianjamka.com/api/google/callback', {
+  fetch('http://boilerplate-hackathon.damianjamka.com/api/social/google/callback', {
     method: 'POST',
     mode: 'cors',
     headers: {
       Accept: 'application/json',
-      // 'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `Bearer ${authObject.id_token}`,
     },
   }).then((res) => {
     console.log(res.json())

@@ -25,7 +25,7 @@ class SocialiteService
             $user = $this->searchUserByEmail($userSocial->email);
             if ($user) {
                 return SocialiteHelper::compareUserWithSocialite($user, $userSocial)
-                && $user->createToken()->save()
+                && $user->createToken($token)->save()
                     ? $this->prepareSuccessResult($user)
                     : $this->prepareErrorResult();
             } else {

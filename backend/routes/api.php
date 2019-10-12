@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/social/{provider}', 'AuthController@redirectToProvider');
-Route::get('/social/{provider}/callback', 'AuthController@handleProviderCallback');
+Route::post('/social/{provider}/callback', 'AuthController@handleProviderCallback');
 
 Route::middleware('api')->name('api.')->group(function(){
     Route::name('places.')->prefix('miejsca')->group(function(){

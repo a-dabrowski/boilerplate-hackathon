@@ -44,4 +44,9 @@ class User extends Authenticatable
         return $this->hasMany(LinkedSocialAccount::class);
     }
 
+    public function createToken($token) {
+        $this->api_token = $token;
+        $this->save();
+    }
+
 }
